@@ -1,0 +1,61 @@
+-- 1)
+-- SELECT nome, cognome 
+-- FROM clienti
+-- WHERE (EXTRACT(YEAR FROM data_nascita)= 1982);
+
+-- 2)
+
+-- SELECT COUNT(*)
+-- FROM fatture
+-- WHERE iva = 0.20;
+
+-- 3) 
+
+-- SELECT data_fattura,
+-- COUNT (*),
+-- SUM(importo)
+-- FROM fatture
+-- GROUP BY data_fattura
+
+-- 4)
+
+-- SELECT *
+-- FROM prodotti
+-- WHERE (EXTRACT(YEAR FROM data_attivazione) =2017);
+
+-- 5) 
+
+-- SELECT(EXTRACT (YEAR FROM data_fattura)), COUNT(*)
+-- FROM fatture
+-- WHERE iva = 0.20
+-- GROUP BY (EXTRACT (YEAR FROM data_fattura));
+
+-- 6) 
+
+-- SELECT (EXTRACT (YEAR FROM data_fattura))
+-- FROM fatture AS fatt
+-- WHERE COUNT(fatt.tipologia = 'A') > 2; ???????
+
+-- 7)
+
+-- SELECT fatt.numero_fattura, fatt.importo, fatt.iva, fatt.data_fattura, forn.denominazione 
+-- FROM fatture as fatt
+-- JOIN fornitori as forn
+-- ON forn.numero_fornitore = fatt.numero_fornitore ;
+
+-- 8)
+
+-- SELECT cl.regione_residenza, SUM(importo)
+-- FROM fatture AS fatt
+-- JOIN clienti AS cl
+-- ON fatt.id_cliente = cl.numero_cliente
+-- GROUP BY cl.regione_residenza
+
+-- 9)
+
+-- SELECT COUNT(*)
+-- FROM clienti as cl
+-- JOIN fatture as fatt
+-- ON cl.numero_cliente = fatt.id_cliente
+-- WHERE (EXTRACT (YEAR FROM data_nascita) = 1982) and fatt.importo > 50;
+
